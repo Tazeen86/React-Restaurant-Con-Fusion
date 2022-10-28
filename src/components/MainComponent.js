@@ -8,6 +8,7 @@ import Footer from './FooterComponent';
 import { DISHES } from '../shared/dishes';
 import  {COMMENTS} from "../shared/comments";
 import Home from './HomeComponent';
+import About from './AboutComponent'
 import { Routes, Route, Navigate ,useParams} from "react-router-dom";
 import { PROMOTIONS } from '../shared/promotions';
 import { LEADERS } from '../shared/leaders';
@@ -36,6 +37,7 @@ class Main extends Component {
           <Route path="/home" element={<HomePage dishes={this.state.dishes} promotions={this.state.promotions} leaders={this.state.leaders}/>} />
           <Route exact path="/menu/:id" element={<DishWithId  dishes={this.state.dishes} comments={this.state.comments}/> }/>
           <Route exact path="/menu" element={<Menu dishes={this.state.dishes} />} />
+          <Route exact path="/aboutus" element={<About leaders={this.state.leaders} />} />
           <Route exact path='/contactus' element={<Contact/>} />
           <Route
       path="*"

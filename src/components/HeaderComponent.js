@@ -26,7 +26,7 @@ class Header extends Component {
                   <NavLink className="nav-link" to="/home"><span className="fa fa-home fa-lg "></span>Home</NavLink>
                 </NavItem>
                 <NavItem>  
-                  <NavLink className="nav-link" to="/about-us"><span className="fa fa-info fa-lg"></span>AboutUs</NavLink>
+                  <NavLink className="nav-link" to="/aboutus"><span className="fa fa-info fa-lg"></span>AboutUs</NavLink>
                   </NavItem>
                   <NavItem>
                   <NavLink className="nav-link" to="/menu"><span className="fa fa-list fa-lg"></span>Menu</NavLink>
