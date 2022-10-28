@@ -8,7 +8,7 @@ import Footer from './FooterComponent';
 import { DISHES } from '../shared/dishes';
 import  {COMMENTS} from "../shared/comments";
 import Home from './HomeComponent';
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate ,useParams} from "react-router-dom";
 import { PROMOTIONS } from '../shared/promotions';
 import { LEADERS } from '../shared/leaders';
 
@@ -23,14 +23,18 @@ class Main extends Component {
       promotions: PROMOTIONS,
       leaders: LEADERS
     };
+
+    
   }
+ 
   render() {
-      
+  
     return (
       <div>
         <Header />
         <Routes>
           <Route path="/home" element={<HomePage dishes={this.state.dishes} promotions={this.state.promotions} leaders={this.state.leaders}/>} />
+          <Route exact path="/menu/:id" element={<DishWithId  dishes={this.state.dishes} comments={this.state.comments}/> }/>
           <Route exact path="/menu" element={<Menu dishes={this.state.dishes} />} />
           <Route exact path='/contactus' element={<Contact/>} />
           <Route
@@ -45,6 +49,14 @@ class Main extends Component {
 
   }
   
+  const DishWithId = (props) => {
+    let {id} = useParams();
+    
+    return(
+        <DishDetail dish={props.dishes.filter((dish) => { return (dish.id === parseInt(id,10));})[0]} 
+        comments={props.comments.filter((comment) => { return (comment.dishId === parseInt(id,10));})} />
+    );
+  }
 
   function HomePage(props) {
     return(
